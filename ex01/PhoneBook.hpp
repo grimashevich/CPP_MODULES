@@ -8,13 +8,17 @@ class PhoneBook
 private:
     Contact contacts[8];
 
-    void AddContact(Contact newContact);
     std::string UserTextInput(std::string msg);
     int GetContactsCount();
+    void DisplayContact(int index);
+    int GetIndexFromUser();
+
 public:
+    void AddContact(Contact newContact);
     PhoneBook();
     int getOldestContact();
     void addContactFromUser();
+    void Search();
 };
 
 #endif //EX01_PHONEBOOK_HPP

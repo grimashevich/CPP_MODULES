@@ -33,6 +33,7 @@ void PhoneBook::addContactFromUser()
     Contact newContact;
     newContact.firstName = UserTextInput("Enter first name");
     newContact.lastname = UserTextInput("Enter last name");
+    newContact.nickName = UserTextInput("Enter nickname");
     newContact.phoneNumber = UserTextInput("Enter phone number");
     newContact.darkestSecret = UserTextInput("Enter darkest secret");
     newContact.id = id++;
@@ -62,3 +63,44 @@ int PhoneBook::GetContactsCount()
     }
     return count;
 }
+
+void PhoneBook::Search()
+{
+    int pBookLength = GetContactsCount();
+    if (pBookLength == 0)
+    {
+        std::cout << "There are no contacts in your phonebook..." << std::endl;
+        std::cout << "Please press any key to enter main menu";
+        std::cin.get();
+        return;
+    }
+    std::cout << "     index|First name| Last name|  Nickname" << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
+    for (int i = 0; i < 7; ++i)
+    {
+        if (contacts[i].id > 0)
+            contacts[i].DisplayContactInLine(i);
+    }
+    std::cout << "___________________________________________" << std::endl;
+    DisplayContact(GetIndexFromUser());
+}
+
+void PhoneBook::DisplayContact(int index)
+{
+
+    contacts[index].DisplayContact();
+}
+
+int PhoneBook::GetIndexFromUser()
+{
+    int input = -1;
+    while (true)
+    {
+        std::cout << "Please enter contact index: " << std::endl;
+        std::cin >> input;
+        if (input >= 0 && input < GetContactsCount())
+            break;
+    }
+    return input;
+}
+

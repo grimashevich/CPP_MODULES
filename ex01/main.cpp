@@ -5,10 +5,21 @@
 int main()
 {
     PhoneBook phonebook;
-    phonebook.addContactFromUser();
-    phonebook.addContactFromUser();
-    phonebook.addContactFromUser();
-    std::cin.get();
+    phonebook.AddContact(Contact(1,
+                                 "Kosya",
+                                 "Grimashevich",
+                                 "eclown",
+                                 "899988555",
+                                 "He is not really clown"));
+        phonebook.AddContact(Contact(2,
+                                 "Vitya",
+                                 "Lantsev",
+                                 "bebek",
+                                 "892548555",
+                                 "He is not really bebek"));
+
+    phonebook.Search();
+    //std::cin.get();
 /*
     Contact contact = Contact(0, "Elyas", "Clown",
                               "000555","He is not really clown");
