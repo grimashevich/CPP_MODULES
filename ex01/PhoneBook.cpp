@@ -131,14 +131,14 @@ void PhoneBook::MainMenu()
         std::cout << "3. Exit" << std::endl;
         std::cout << "PLEASE ENTER DIGIT FROM 1 TO 3:" << std::endl;
         std::cin >> answer;
-        if (answer.compare("3") == 0)
+        if (answer.compare("3") == 0 || answer.compare("EXIT") == 0)
         {
             ClearScreen();
             break;
         }
-        else if (answer.compare("1") == 0)
+        else if (answer.compare("1") == 0 || answer.compare("ADD") == 0)
             AddContactFromUser();
-        else if (answer.compare("2") == 0)
+        else if (answer.compare("2") == 0 || answer.compare("SEARCH") == 0)
             Search();
     }
 }
