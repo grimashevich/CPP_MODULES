@@ -55,9 +55,15 @@ void Contact::DisplayContactInLine(int index)
 
 void Contact::DisplayContact()
 {
-    std::cout << "First Name.... " << firstName << std::endl;
-    std::cout << "Last Name..... " << lastname << std::endl;
-    std::cout << "Nickname...... " << nickName << std::endl;
-    std::cout << "Phone number.. " << phoneNumber << std::endl;
-    std::cout << "Darkest secret " << darkestSecret << std::endl;
+    ClearScreen();
+    std::cout << "First Name....: " << firstName << std::endl;
+    std::cout << "Last Name.....: " << lastname << std::endl;
+    std::cout << "Nickname......: " << nickName << std::endl;
+    std::cout << "Phone number..: " << phoneNumber << std::endl;
+    std::cout << "Darkest secret: " << darkestSecret << std::endl;
+}
+
+void Contact::ClearScreen()
+{
+    std::cout << "\x1B[2J\x1B[H";
 }

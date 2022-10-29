@@ -12,12 +12,15 @@ private:
     int GetContactsCount();
     void DisplayContact(int index);
     int GetIndexFromUser();
+    void ClearScreen();
+    void AsciiArt();
 
 public:
-    void AddContact(Contact newContact);
     PhoneBook();
-    int getOldestContact();
-    void addContactFromUser();
+    void MainMenu();
+    void AddContact(Contact newContact);
+    int GetOldestContact();
+    void AddContactFromUser();
     void Search();
 };
 

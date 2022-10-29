@@ -8,6 +8,8 @@ class Contact
 private:
     std::string CutString(std::string str);
     std::string  PrepareToPrint(std::string str);
+    void ClearScreen();
+
 
 public:
     int id;
