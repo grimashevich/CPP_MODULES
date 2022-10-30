@@ -1,4 +1,4 @@
-NAME		=	phonebook
+NAME		=	accounts
 
 CC			=	c++
 
@@ -19,7 +19,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 #source files
-SRC_FILES	=	main.cpp Contact.cpp PhoneBook.cpp
+SRC_FILES	=	tests.cpp Account.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
