@@ -30,8 +30,8 @@ public:
 
     Fixed& operator++();
     Fixed& operator--();
-    Fixed operator++(int);
-    Fixed operator--(int);
+    const Fixed operator++(int);
+    const Fixed operator--(int);
 
     static Fixed &min(Fixed &f1, Fixed &f2);
     static const Fixed &min(const Fixed &f1, const Fixed &f2);
