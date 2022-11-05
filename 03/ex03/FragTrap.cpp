@@ -13,8 +13,9 @@ FragTrap::FragTrap()
         << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
+    _name = name;
     std::cout << "FragTrap constructor called" <<  " (" << _name << ")"
         << std::endl;
     _hp = 100;
