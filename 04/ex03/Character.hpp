@@ -23,6 +23,7 @@ private:
     void keepInHolder(AMateria *m);
     void freeHolder();
     void freeInventory();
+    bool isThereAmateria(AMateria *m);
 public:
     Character();
     Character(std::string name);

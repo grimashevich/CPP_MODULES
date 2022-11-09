@@ -4,6 +4,10 @@ Character::Character()
 {
     //std::cout << "*** Default character constructor called" <<
     //    std::endl;
+    for (int i = 0; i < INVENTORY_CAPACITY; ++i)
+    {
+        _inventory[i] = NULL;
+    }
     _holder = NULL;
     _name = "Unknown character";
 }
@@ -11,6 +15,10 @@ Character::Character()
 Character::Character(std::string name)
 {
     //std::cout << "*** Character constructor called" << std::endl;
+    for (int i = 0; i < INVENTORY_CAPACITY; ++i)
+    {
+        _inventory[i] = NULL;
+    }
     _name = name;
     _holder = NULL;;
 }
@@ -37,9 +45,20 @@ std::string const &Character::getName() const
     return _name;
 }
 
+bool Character::isThereAmateria(AMateria *m)
+{
+    int i = 0;
+    while (i < INVENTORY_CAPACITY)
+    {
+        if (_inventory[i++] == m)
+            return true;
+    }
+    return false;
+}
+
 void Character::equip(AMateria *m)
 {
-    if (! m)
+    if (! m || isThereAmateria(m))
         return;
     int i = 0;
     for (; i < INVENTORY_CAPACITY; ++i)
@@ -76,6 +95,8 @@ void Character::keepInHolder(AMateria *m)
     if (current == NULL)
     {
         _holder = current = new tAmateriaHolder;
+        current->m = NULL;
+        current->next = NULL;
     }
     else
     {
@@ -85,10 +106,13 @@ void Character::keepInHolder(AMateria *m)
         current = current->next;
     }
     current->m = m;
+    current->next = NULL;
 }
 
 void Character::freeHolder()
 {
+    if (_holder == NULL)
+        return;
     sAmateriaHolder *current = _holder;
     sAmateriaHolder *tmp;
     while (current != NULL)
@@ -118,4 +142,3 @@ Character::~Character()
     freeHolder();
     freeInventory();
 }
-

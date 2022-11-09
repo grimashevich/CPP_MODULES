@@ -3,11 +3,27 @@
 MateriaSource::MateriaSource()
 {
     //std::cout << "Default MateriaSource constructor called" << std::endl;
+    for (int i = 0; i < INVENTORY_CAPACITY; ++i)
+    {
+        _wareHouse[i] = NULL;
+    }
 }
 
 MateriaSource::MateriaSource(const MateriaSource &source)
 {
     *this = source;
+}
+
+bool MateriaSource::isThereAmateria(AMateria *m)
+{
+    int i = 0;
+    while (i < INVENTORY_CAPACITY)
+    {
+        if (_wareHouse[i] == m)
+            return true;
+        i++;
+    }
+    return false;
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &source)
@@ -23,6 +39,9 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &source)
 void MateriaSource::learnMateria(AMateria *m)
 {
     int i = 0;
+
+    if (isThereAmateria(m))
+        return;
     for (; i < INVENTORY_CAPACITY; ++i)
     {
         if (_wareHouse[i] == NULL)
@@ -62,3 +81,4 @@ MateriaSource::~MateriaSource()
             delete _wareHouse[i];
     }
 }
+

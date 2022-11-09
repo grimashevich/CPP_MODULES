@@ -8,6 +8,7 @@ class MateriaSource: public IMateriaSource
 {
 private:
     AMateria *_wareHouse[INVENTORY_CAPACITY];
+    bool isThereAmateria(AMateria *m);
 public:
     MateriaSource();
 
