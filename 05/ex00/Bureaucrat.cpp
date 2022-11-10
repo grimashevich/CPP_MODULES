@@ -54,6 +54,7 @@ void Bureaucrat::gradeDown()
 {
     if (_grade >= 150)
         throw GradeTooLowException;
+    _grade++;
 }
 
 Bureaucrat::~Bureaucrat()
