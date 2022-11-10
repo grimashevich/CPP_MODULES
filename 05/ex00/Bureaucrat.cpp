@@ -18,7 +18,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name),
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &source): _grade(source._grade),
+Bureaucrat::Bureaucrat(const Bureaucrat &source):
+    _name(source._name),
+    _grade(source._grade),
     GradeTooHighException("Error! To high grade for " + _name),
     GradeTooLowException("Error! To low grade for " + _name)
 {
