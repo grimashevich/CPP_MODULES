@@ -31,7 +31,7 @@ public:
     void BeSigned(Bureaucrat &b);
     virtual bool execute(Bureaucrat const & executor) const = 0;
 
-    ~Form();
+    virtual ~Form();
 };
 
 std::ostream& operator<<(std::ostream &os, const Form &form);
