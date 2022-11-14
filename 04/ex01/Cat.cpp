@@ -19,7 +19,10 @@ Cat::Cat(const Cat &source): Animal(source)
 
 Cat &Cat::operator=(const Cat &source)
 {
+    if (&source == this)
+        return *this;
     Animal::operator=(source);
+    delete this->_brain;
     this->_brain = new Brain();
     *this->_brain = *source._brain;
     return *this;

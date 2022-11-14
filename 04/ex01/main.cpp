@@ -3,8 +3,13 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
+void  additionalTest();
+
 int main()
 {
+/*    additionalTest();
+    return 0;*/
+
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     delete j;//should not create a leak
@@ -17,4 +22,24 @@ int main()
     tom.sayIdea(42);
 
     return 0;
+}
+
+void  additionalTest()
+{
+    Dog *dog1 = new Dog();
+    sleep(1);
+    Dog *dog2 = new Dog();
+
+    dog1->sayIdea(0);
+    dog2->sayIdea(0);
+
+    *dog2 = *dog1;
+
+    dog1->sayIdea(0);
+    dog2->sayIdea(0);
+
+    *dog1 = *dog1;
+
+    delete dog1;
+    delete dog2;
 }
