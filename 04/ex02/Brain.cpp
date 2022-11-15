@@ -8,13 +8,14 @@ Brain::Brain()
 
 std::string Brain::GetRandomIdea(int len)
 {
+    static int delta;
     static const char alphanum[] =
             "01`23456789                "
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             "abcdefghijklmnopqrstuvwxyz";
     std::string idea;
 
-    srand((unsigned)time(NULL) * getpid());
+    srand((unsigned)time(NULL) * getpid() + delta++);
     idea.reserve(len);
 
     for (int i = 0; i < len; ++i) {

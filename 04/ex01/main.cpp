@@ -7,6 +7,7 @@ void  additionalTest();
 
 int main()
 {
+
 /*    additionalTest();
     return 0;*/
 
@@ -16,10 +17,14 @@ int main()
     delete i;
 
     std::cout << std::endl << std::endl;
-    Cat matroskin = Cat();
-    Cat tom = matroskin;
-    matroskin.sayIdea(42);
-    tom.sayIdea(42);
+    Cat *matroskin = new Cat();
+    Cat *tom = new Cat();
+
+    matroskin->sayIdea(42);
+    tom->sayIdea(42);
+
+    delete matroskin;
+    delete tom;
 
     return 0;
 }
@@ -27,7 +32,6 @@ int main()
 void  additionalTest()
 {
     Dog *dog1 = new Dog();
-    sleep(1);
     Dog *dog2 = new Dog();
 
     dog1->sayIdea(0);
