@@ -102,7 +102,7 @@ void Converter::convertToChar()
     else
     {
         _cInput = static_cast<char>(_dInput);
-        _displayValues[3] = _cInput;
+        _displayValues[3] = "'" + std::string(1, _cInput) + "'";
     }
 }
 
@@ -135,7 +135,6 @@ Converter::~Converter()
 
 std::ostream& operator<<(std::ostream &out, const Converter &converter)
 {
-    out << "string: " << converter.getInput() << std::endl;
     out << "char: " << converter.getDisplayValues(3) << std::endl;
     out << "int: " << converter.getDisplayValues(2) << std::endl;
     out << "float: " << converter.getDisplayValues(1) << std::endl;
