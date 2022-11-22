@@ -72,7 +72,10 @@ void Converter::Convert()
             _displayValues[i] = "impossible";
         return;
     }
-    _dInput = strtod(&_input[0], NULL);
+    if (_input.size() == 1)
+        _dInput = static_cast<double>(_input[0]);
+    else
+        _dInput = strtod(&_input[0], NULL);
     convertToChar();
     convertToNumeric();
 }
