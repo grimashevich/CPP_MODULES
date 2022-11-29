@@ -31,6 +31,7 @@ public:
     uint longestSpan();
     void sort();
     void addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+    void addRange(const Span &source);
 
     ~Span();
 };

@@ -87,6 +87,15 @@ void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator
     _isSorted = false;
 }
 
+void Span::addRange(const Span &source)
+{
+    if (static_cast<uint>(source._values->end() -
+                source._values->begin()) > _maxSize - _values->size())
+        throw _overflowError;
+    _values->insert(_values->end(), source._values->begin(), source._values->end());
+    _isSorted = false;
+}
+
 Span::~Span()
 {
     delete _values;
